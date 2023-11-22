@@ -6,9 +6,15 @@ using UnityEngine.InputSystem.Controls;
 
 public class InputAdapter : Singleton<InputAdapter>
 {
+    [SerializeField]
+    private float holdTime;
+
     public event System.Action<char> OnLetterPressed;
     public event System.Action OnSubmit;
     public event System.Action OnBackspace;
+
+    private bool backspaceHeldDown = false;
+    private float backspaceHoldCounter = 0;
 
     public void KeyPress(InputAction.CallbackContext context)
     {
@@ -35,6 +41,17 @@ public class InputAdapter : Singleton<InputAdapter>
     public void Backspace(InputAction.CallbackContext context)
     {
         if (context.started)
+        {
+            backspaceHoldCounter = 0;
+            OnBackspace?.Invoke();
+        }
+
+        backspaceHeldDown = context.ReadValueAsButton();
+    }
+
+    private void Update()
+    {
+        if (backspaceHeldDown && (backspaceHoldCounter += Time.deltaTime) > holdTime)
         {
             OnBackspace?.Invoke();
         }
