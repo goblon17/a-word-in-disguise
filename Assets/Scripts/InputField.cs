@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class InputField : MonoBehaviour
+{
+    [SerializeField]
+    private TextMeshProUGUI textMesh;
+
+    private string Text { get => textMesh.text; set => textMesh.text = value; }
+
+    private void Awake()
+    {
+        Text = "";
+
+        if (InputAdapter.IsInstanced)
+        {
+            OnInstantiateInputAdapter();
+        }
+        else
+        {
+            InputAdapter.OnInstantiate += OnInstantiateInputAdapter;
+        }
+    }
+
+    private void OnInstantiateInputAdapter()
+    {
+        InputAdapter.Instance.OnLetterPressed += OnLetterPressed;
+        InputAdapter.Instance.OnBackspace += OnBackspace;
+
+        InputAdapter.OnInstantiate -= OnInstantiateInputAdapter;
+    }
+
+    private void OnBackspace()
+    {
+        if (Text.Length > 0)
+        {
+            Text = Text.Substring(0, Text.Length - 1);
+        }
+    }
+
+    private void OnLetterPressed(char letter)
+    {
+        Text += letter;
+    }
+}
