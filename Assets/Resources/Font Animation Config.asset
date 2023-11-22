@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Font Animation Config
   m_EditorClassIdentifier: 
   fonts:
-  - {fileID: 11400000, guid: 315366ec90883ec40bebba7ac3c7c6b9, type: 2}
-  - {fileID: 11400000, guid: c1cae1f1b9a936140b02fe2e083c9d10, type: 2}
-  - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  delay: 0.7
+  - {fileID: 11400000, guid: 2beab8a8f602ab04cb547bc3cf526629, type: 2}
+  - {fileID: 11400000, guid: 060f18526090ae64385e75e8d6936558, type: 2}
+  - {fileID: 11400000, guid: 976dec4edcfd68649911d20e3ff4665d, type: 2}
+  - {fileID: 11400000, guid: a2297f2a8b767754ea7156e441a3aee2, type: 2}
+  delay: 0.3

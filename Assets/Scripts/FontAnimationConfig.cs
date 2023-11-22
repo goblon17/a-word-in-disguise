@@ -7,10 +7,10 @@ using TMPro;
 public class FontAnimationConfig : ScriptableObjectSingleton<FontAnimationConfig>
 {
     [SerializeField]
-    private List<TMP_FontAsset> fonts;
+    private List<TMP_SpriteAsset> fonts;
     [SerializeField]
     private float delay;
 
-    public List<TMP_FontAsset> Fonts => new List<TMP_FontAsset>(fonts);
+    public List<TMP_SpriteAsset> Fonts => new List<TMP_SpriteAsset>(fonts);
     public float Delay => delay;
 }

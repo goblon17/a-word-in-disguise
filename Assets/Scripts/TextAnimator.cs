@@ -22,7 +22,7 @@ public class TextAnimator : MonoBehaviour
         int i = 0;
         while (true)
         {
-            textMesh.font = config.Fonts[i];
+            textMesh.spriteAsset = config.Fonts[i];
             i = (i + 1) % config.Fonts.Count;
             yield return new WaitForSeconds(config.Delay);
         }
