@@ -8,7 +8,11 @@ public class LevelList : ScriptableObjectSingleton<LevelList>
     [SerializeField]
     private GameObject menu;
     [SerializeField]
+    private GameObject win;
+    [SerializeField]
     private List<GameObject> levels;
+
+    public int LevelCount => levels.Count;
 
     public bool TryGetLevel(int i, out GameObject gameObject)
     {
@@ -25,5 +29,10 @@ public class LevelList : ScriptableObjectSingleton<LevelList>
     public GameObject GetMenu()
     {
         return menu;
+    }
+
+    public GameObject GetWin()
+    {
+        return win;
     }
 }

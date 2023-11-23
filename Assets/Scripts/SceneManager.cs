@@ -38,12 +38,19 @@ public class SceneManager : MonoBehaviour
         if (nextLevel < 0)
         {
             currentScene = Instantiate(LevelList.Instance.GetMenu(), parent).transform as RectTransform;
+            GameManager.Instance.WinWords = null;
             return;
         }
 
         if (LevelList.Instance.TryGetLevel(nextLevel, out GameObject go))
         {
             currentScene = Instantiate(go, parent).transform as RectTransform;
+            GameManager.Instance.WinWords = currentScene.GetComponent<LevelController>().WinWords;
+        }
+        else
+        {
+            currentScene = Instantiate(LevelList.Instance.GetWin(), parent).transform as RectTransform;
+            GameManager.Instance.WinWords = null;
         }
     }
 }

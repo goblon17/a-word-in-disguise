@@ -22,3 +22,10 @@ MonoBehaviour:
   - back
   - menu
   - leave
+  restart:
+  - restart
+  - reset
+  winGame:
+  - win
+  nextLevel:
+  - next

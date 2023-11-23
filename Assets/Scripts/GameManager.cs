@@ -6,10 +6,17 @@ public class GameManager : Singleton<GameManager>
 {
     public event System.Action<int> OnLevelComplete;
 
+    public List<string> WinWords
+    {
+        set => winWords = value == null ? value :  new List<string>(value);
+    }
+
     private int currentLevel = 0;
     private bool menu = true;
 
     private Keywords keywords;
+
+    private List<string> winWords;
 
     protected override void Awake()
     {
@@ -57,6 +64,17 @@ public class GameManager : Singleton<GameManager>
 
     private bool LevelCheckInput(string input)
     {
+        if (winWords == null)
+        {
+            return false;
+        }
+
+        if (winWords.Contains(input))
+        {
+            NextLevel();
+            return true;
+        }
+
         return false;
     }
 
@@ -74,6 +92,23 @@ public class GameManager : Singleton<GameManager>
                     return true;
                 }
                 break;
+            case string a when keywords.Restart.Contains(a):
+                if (!menu)
+                {
+                    EnterMenu();
+                }
+                currentLevel = 0;
+                return true;
+            case string a when keywords.WinGame.Contains(a):
+                GoToWin();
+                return true;
+            case string a when keywords.NextLevel.Contains(a):
+                if (!menu)
+                {
+                    NextLevel();
+                    return true;
+                }
+                break;
         }
         return false;
     }
@@ -87,6 +122,24 @@ public class GameManager : Singleton<GameManager>
     private void EnterMenu()
     {
         menu = true;
+        if (currentLevel >= LevelList.Instance.LevelCount)
+        {
+            currentLevel = 0;
+        }
         OnLevelComplete?.Invoke(-1);
+    }
+
+    private void NextLevel()
+    {
+        menu = false;
+        currentLevel++;
+        OnLevelComplete?.Invoke(currentLevel);
+    }
+
+    private void GoToWin()
+    {
+        menu = false;
+        currentLevel = LevelList.Instance.LevelCount;
+        NextLevel();
     }
 }

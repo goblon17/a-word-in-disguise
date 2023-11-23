@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Level List
   m_EditorClassIdentifier: 
   menu: {fileID: 1067009704806748431, guid: d4e92323356082d4e8b33764c994d9d0, type: 3}
+  win: {fileID: 1067009704806748431, guid: ededb3b6f6a22a34f98458d39145e1b2, type: 3}
   levels: []
