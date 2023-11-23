@@ -69,7 +69,7 @@ public class GameManager : Singleton<GameManager>
             return false;
         }
 
-        if (winWords.Contains(input))
+        if (winWords.Contains(input) || winWords.Contains("ANYTHING"))
         {
             NextLevel();
             return true;

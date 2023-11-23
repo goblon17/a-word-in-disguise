@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 255226059234793534}
   - component: {fileID: 7331212231033498224}
   m_Layer: 5
-  m_Name: jack black
+  m_Name: engineer gaming
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winWords:
-  - jack black
+  - engineer gaming
 --- !u!1 &6884201444106146159
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,19 +119,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'FNAF AT FREDDYS
+  m_text: '<line-height=100%>ENGINEER GAMING
 
-    THATS WHERE I WANNA GO
-
-    FNAF AT FREDDYS
-
-    UNDERNEATH
-    THE MISTLETOE
-
-    YEAH <color=#FF4770BB>KISS</color>
-
-    IF THERE WAS A FNAF
-    THERE'
+    <size=50%>ENGINEER GAMING'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1cae1f1b9a936140b02fe2e083c9d10, type: 2}
   m_sharedMaterial: {fileID: -920460382142485570, guid: c1cae1f1b9a936140b02fe2e083c9d10, type: 2}
@@ -158,10 +148,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
