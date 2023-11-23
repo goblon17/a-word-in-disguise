@@ -9,6 +9,15 @@ public class GameManager : Singleton<GameManager>
     private int currentLevel = 0;
     private bool menu = true;
 
+    private Keywords keywords;
+
+    protected override void Awake()
+    {
+        keywords = Keywords.Instance;
+
+        base.Awake();
+    }
+
     private void Start()
     {
         currentLevel = 0;
@@ -38,7 +47,7 @@ public class GameManager : Singleton<GameManager>
         {
             switch (input)
             {
-                case "start" or "play":
+                case string a when keywords.StartGame.Contains(a):
                     LeaveMenu();
                     return true;
             }
@@ -53,9 +62,18 @@ public class GameManager : Singleton<GameManager>
 
     private bool GameControllCheckInput(string input)
     {
-        if (input == "quit")
+        switch (input)
         {
-            Application.Quit();
+            case string a when keywords.StartGame.Contains(a):
+                Application.Quit();
+                return true;
+            case string a when keywords.BackToMenu.Contains(a):
+                if (!menu)
+                {
+                    EnterMenu();
+                    return true;
+                }
+                break;
         }
         return false;
     }
