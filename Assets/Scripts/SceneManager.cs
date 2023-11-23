@@ -6,6 +6,8 @@ public class SceneManager : MonoBehaviour
 {
     [SerializeField]
     private RectTransform parent;
+    [SerializeField]
+    private float moveDuration;
 
     private RectTransform currentScene;
 
@@ -32,7 +34,8 @@ public class SceneManager : MonoBehaviour
     {
         if (currentScene != null)
         {
-            Destroy(currentScene.gameObject);
+            StartCoroutine(LeaveCoroutine(currentScene));
+            currentScene = null;
         }
 
         if (nextLevel < 0)
@@ -46,11 +49,27 @@ public class SceneManager : MonoBehaviour
         {
             currentScene = Instantiate(go, parent).transform as RectTransform;
             GameManager.Instance.WinWords = currentScene.GetComponent<LevelController>().WinWords;
+            StartCoroutine(EnterCoroutine(currentScene));
         }
         else
         {
             currentScene = Instantiate(LevelList.Instance.GetWin(), parent).transform as RectTransform;
             GameManager.Instance.WinWords = null;
+            StartCoroutine(EnterCoroutine(currentScene));
         }
+    }
+
+    private IEnumerator LeaveCoroutine(RectTransform rectTransform)
+    {
+        yield return UIUtils.AnimateRectTransformAnchoredPositionCoroutine(rectTransform, moveDuration, new Vector2(-rectTransform.rect.width, 0), rectTransform.sizeDelta);
+
+        Destroy(rectTransform.gameObject);
+    }
+
+    private IEnumerator EnterCoroutine(RectTransform rectTransform)
+    {
+        currentScene.anchoredPosition = new Vector2(currentScene.rect.width, 0);
+
+        yield return UIUtils.AnimateRectTransformAnchoredPositionCoroutine(rectTransform, moveDuration, new Vector2(0, 0), rectTransform.sizeDelta);
     }
 }

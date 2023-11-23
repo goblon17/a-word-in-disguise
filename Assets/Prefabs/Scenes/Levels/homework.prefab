@@ -119,7 +119,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HALF OF MY ENERGY IS WASTED ON RANDOM KNOWLEDGE
+  m_text: HALF OF MY ENERGY WASTED ON RANDOM KNOWLEDGE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1cae1f1b9a936140b02fe2e083c9d10, type: 2}
   m_sharedMaterial: {fileID: -920460382142485570, guid: c1cae1f1b9a936140b02fe2e083c9d10, type: 2}

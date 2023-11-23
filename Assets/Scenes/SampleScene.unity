@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 186546562}
+  moveDuration: 1
 --- !u!1 &439674221
 GameObject:
   m_ObjectHideFlags: 0
