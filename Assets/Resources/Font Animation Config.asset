@@ -17,4 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 060f18526090ae64385e75e8d6936558, type: 2}
   - {fileID: 11400000, guid: 976dec4edcfd68649911d20e3ff4665d, type: 2}
   - {fileID: 11400000, guid: a2297f2a8b767754ea7156e441a3aee2, type: 2}
-  delay: 0.3
+  delay: 0.1

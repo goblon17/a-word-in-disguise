@@ -28,6 +28,7 @@ public class InputField : MonoBehaviour
     {
         InputAdapter.Instance.OnLetterPressed += OnLetterPressed;
         InputAdapter.Instance.OnBackspace += OnBackspace;
+        InputAdapter.Instance.OnSubmit += OnSubmit;
 
         InputAdapter.OnInstantiate -= OnInstantiateInputAdapter;
     }
@@ -36,12 +37,18 @@ public class InputField : MonoBehaviour
     {
         if (Text.Length > 0)
         {
-            Text = Text.Substring(0, Text.Length - 1);
+            Text = Text[..^1];
         }
     }
 
     private void OnLetterPressed(char letter)
     {
         Text += letter;
+    }
+
+    private void OnSubmit()
+    {
+        GameManager.Instance.SubmitInput(Text);
+        Text = "";
     }
 }
