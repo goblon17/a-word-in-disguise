@@ -42,6 +42,7 @@ public class SceneManager : MonoBehaviour
         {
             currentScene = Instantiate(LevelList.Instance.GetMenu(), parent).transform as RectTransform;
             GameManager.Instance.WinWords = null;
+            StartCoroutine(EnterCoroutine(currentScene));
             return;
         }
 

@@ -82,7 +82,7 @@ public class GameManager : Singleton<GameManager>
     {
         switch (input)
         {
-            case string a when keywords.StartGame.Contains(a):
+            case string a when keywords.QuitGame.Contains(a):
                 Application.Quit();
                 return true;
             case string a when keywords.BackToMenu.Contains(a):
